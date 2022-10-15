@@ -45,8 +45,8 @@ def check_answer(random_number, user_name):
                 check_answer(random_number, user_name)
             if (user_answer > random_number):
                 print("\nNumber you have entered is too high..!\n")
-                print("\nTry again...\n")
-                check_answer(random_number, user_name)
+                print("\nYou have lost the game..!\n")
+                exit()
 
 
 ask_to_start()
