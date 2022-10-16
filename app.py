@@ -19,7 +19,11 @@ while attempts != -1:
             result = "\nYou have lost the game\n"
             break
         else:
-            print(f'\nTry Again, {attempts} attempt left..!')
+            if user_guess > random_num:
+                print(f"\nYou answer {user_guess} is greater.")
+            elif user_guess < random_num:
+                print(f"\nYou answer {user_guess} is smaller.")
+            print(f'\nTry Again, Remaining attempts:{attempts}')
             attempts -= 1
             continue
 print(result)
