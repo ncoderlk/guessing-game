@@ -1,52 +1,25 @@
 import random
 
-print("\nWelcome to Guessing Game\n")
+# Change the range via here
 
+random_num = random.randint(0, 10)
 
-def ask_to_start():
-    user_name = input(str("\nHey, Enter your name :"))
-    played_users = open("last-user.txt", "w")
+attempts = 5
 
-    played_users.writelines(user_name)
-    played_users.close()
+result = ""
 
-   # Display Menu
-    print("MENU\n")
-    print("1 : Start Game")
-    print("2 : Exit Game \n")
+while attempts != -1:
+    user_guess = int(input("\nEnter the guessed number(0-10):"))
 
-    user_exit_choice = int(input("Enter your choice : "))
-    if user_exit_choice == 1:
-        ask_for_range(user_name)
+    if user_guess == random_num:
+        result = "\nCongratulations, You have won the game !\n"
+        break
     else:
-        exit()
-
-
-def ask_for_range(user_name):
-    max_range = int(input("\nEnter the number range: "))
-    if max_range != "":
-        random_number = random.randint(0, max_range)
-        if random_number == max_range:
-            random_number = random.randint(0, max_range)
+        if attempts == 0:
+            result = "\nYou have lost the game\n"
+            break
         else:
-            check_answer(random_number, user_name)
-
-
-def check_answer(random_number, user_name):
-    user_answer = int(input("\nEnter the guessed number: "))
-    if user_answer == random_number:
-        print(f"\nCongratulations, You Have Won The Game {user_name}..!\n")
-        exit()
-    else:
-        while user_answer != random_number:
-            if (user_answer < random_number):
-                print("\nNumber you have entered is too low..!\n")
-                print("\nTry again...\n")
-                check_answer(random_number, user_name)
-            if (user_answer > random_number):
-                print("\nNumber you have entered is too high..!\n")
-                print("\nYou have lost the game..!\n")
-                exit()
-
-
-ask_to_start()
+            print(f'\nTry Again, {attempts} attempt left..!')
+            attempts -= 1
+            continue
+print(result)
