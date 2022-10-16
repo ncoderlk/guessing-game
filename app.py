@@ -12,11 +12,11 @@ while attempts != -1:
     user_guess = int(input("\nEnter the guessed number(0-10):"))
 
     if user_guess == random_num:
-        result = "\nCongratulations, You have won the game !\n"
+        result = "\nCongratulations, You have won the game..!🥳🥳\n"
         break
     else:
         if attempts == 0:
-            result = "\nYou have lost the game\n"
+            result = "\nYou have lost the game..!🙄🙄\n"
             break
         else:
             if user_guess > random_num:
